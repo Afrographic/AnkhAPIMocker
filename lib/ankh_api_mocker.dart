@@ -2,6 +2,8 @@
 
 library ankh_api_mocker;
 
+import 'dart:collection';
+import 'dart:developer';
 import 'dart:math' as math;
 
 /*
@@ -76,16 +78,16 @@ class AnkhAPIMocker {
     return match?.group(1) as String;
   }
 
-  String _generateRandom(String dataType) {
+  dynamic _generateRandom(String dataType) {
     switch (dataType) {
       case "int":
         {
-          return "${_randomIntGenerator(10000)}";
+          return _randomIntGenerator(10000);
         }
 
       case "int?":
         {
-          return "${_randomIntGenerator(10000)}";
+          return _randomIntGenerator(10000);
         }
 
       case "String":
@@ -100,42 +102,64 @@ class AnkhAPIMocker {
 
       case "double":
         {
-          return "${_randomDoubleGenerator()}";
+          return _randomDoubleGenerator();
         }
 
       case "double?":
         {
-          return "${_randomDoubleGenerator()}";
+          return _randomDoubleGenerator();
         }
 
       case "bool":
         {
-          return "${_randomBoolGenerator()}";
+          return _randomBoolGenerator();
         }
 
       case "bool?":
         {
-          return "${_randomBoolGenerator()}";
+          return _randomBoolGenerator();
         }
 
       default:
         {
-          return "-1";
+          return -1;
         }
     }
   }
 
-  List<Field> parseFieldStringToArray(String fieldsString) {
+  List<Field> _parseFieldStringToArray(String fieldsString) {
     List<Field> fields = [];
-
+    fieldsString = fieldsString.substring(0, fieldsString.length - 2);
+    List<String> fieldsStringArray = fieldsString.split(";");
+    for (var fieldString in fieldsStringArray) {
+      fields.add(_buildField(fieldString));
+    }
     return fields;
   }
 
-  dynamic generateData(String fieldSchema) {
+  Field _buildField(String fieldString) {
+    fieldString = fieldString.trim();
+    List<String> splitted = fieldString.split(" ");
+    return Field(fieldType: splitted[0], fieldName: splitted[1]);
+  }
+
+  dynamic _buildRandomData(List<Field> fields) {
+    final Map<String, dynamic> data = HashMap();
+    for (var field in fields) {
+      data.addAll({field.fieldName: _generateRandom(field.fieldType)});
+    }
+    return data;
+  }
+
+  dynamic generateData(
+      {required String fieldSchema, int? delayInSec = 0}) async {
+    await Future.delayed(Duration(seconds: delayInSec as int));
     fieldSchema = _removeAllLargeSpaces(fieldSchema);
     if (_validFieldsSchema(fieldSchema)) {
       String fields = _extractField(fieldSchema);
-      print(fields);
+      List<Field> fieldList = _parseFieldStringToArray(fields);
+      dynamic data = _buildRandomData(fieldList);
+      return data;
     } else {
       throw Exception("Invalid Field Schema,Please check the documentation");
     }
@@ -143,27 +167,10 @@ class AnkhAPIMocker {
 }
 
 class Field {
-  String dataType;
-  String data;
+  String fieldType;
+  String fieldName;
 
-  Field({required this.dataType, required this.data});
+  Field({required this.fieldType, required this.fieldName});
 }
 
-class User {
-  int idUser;
-  String name;
-  String email;
 
-  User({
-    required this.idUser,
-    required this.email,
-    required this.name,
-  });
-
-  static String AnkhAPIMockerInit = """{
-  int idUser;
-  bool isOnline;
-  double height;
-  String fullName;
-}""";
-}

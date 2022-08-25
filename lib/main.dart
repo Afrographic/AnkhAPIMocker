@@ -1,8 +1,11 @@
 import 'dart:developer';
 
 import 'package:ankh_api_mocker/ankh_api_mocker.dart';
+import 'package:ankh_api_mocker/user.dart';
 
-void main() {
+void main() async {
   AnkhAPIMocker mocker = AnkhAPIMocker();
-  mocker.generateData(User.AnkhAPIMockerInit);
+  dynamic userJSON =
+      await mocker.generateData(fieldSchema: User.AnkhAPIMockerInit);
+  User user = User.fromJSON(userJSON);
 }
