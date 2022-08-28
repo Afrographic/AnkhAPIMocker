@@ -6,6 +6,8 @@ import 'dart:collection';
 import 'dart:developer';
 import 'dart:math' as math;
 
+import 'package:ankh_api_mocker/images.dart';
+
 /*
 Author : Afrographix
 This package helps you to mock an API response
@@ -50,12 +52,28 @@ class AnkhAPIMocker {
     return date % 2 == 0;
   }
 
-  String _randomStringGenerator() {
+  String _randomStringGenerator(String fieldName) {
+    if (fieldName.toLowerCase().contains("avatar")) {
+      return _generateRandomAvatar();
+    }
+    if (fieldName.toLowerCase().contains("image")) {
+      return _generateRandomImage();
+    }
     if (_randomBoolGenerator()) return "Sekhmet";
     List<String> chars = ["Ankh", "Maat", "Amon", "Afro"];
     String suffix = "";
     suffix += chars[_randomIntGenerator(chars.length - 1)];
     return "Sekhmet-" + suffix;
+  }
+
+  String _generateRandomAvatar() {
+    int index = _randomIntGenerator(avatars.length - 1);
+    return avatars[index];
+  }
+
+  String _generateRandomImage() {
+    int index = _randomIntGenerator(images.length - 1);
+    return images[index];
   }
 
   String _removeAllLargeSpaces(String fieldSchema) {
@@ -78,8 +96,8 @@ class AnkhAPIMocker {
     return match?.group(1) as String;
   }
 
-  dynamic _generateRandom(String dataType) {
-    switch (dataType) {
+  dynamic _generateRandom(Field field) {
+    switch (field.fieldType) {
       case "int":
         {
           return _randomIntGenerator(10000);
@@ -92,12 +110,12 @@ class AnkhAPIMocker {
 
       case "String":
         {
-          return _randomStringGenerator();
+          return _randomStringGenerator(field.fieldName);
         }
 
       case "String?":
         {
-          return _randomStringGenerator();
+          return _randomStringGenerator(field.fieldName);
         }
 
       case "double":
@@ -146,20 +164,34 @@ class AnkhAPIMocker {
   dynamic _buildRandomData(List<Field> fields) {
     final Map<String, dynamic> data = HashMap();
     for (var field in fields) {
-      data.addAll({field.fieldName: _generateRandom(field.fieldType)});
+      data.addAll({field.fieldName: _generateRandom(field)});
+    }
+    return data;
+  }
+
+  dynamic _buildMultipleRandomData(List<Field> fields, int count) {
+    final List<Map<String, dynamic>> data = [];
+    for (int i = 0; i <= count; i++) {
+      var dataItem = _buildRandomData(fields);
+      data.add(dataItem);
     }
     return data;
   }
 
   dynamic generateData(
-      {required String fieldSchema, int? delayInSec = 0}) async {
+      {required String fieldSchema,
+      int? delayInSec = 0,
+      int? count = 0}) async {
     await Future.delayed(Duration(seconds: delayInSec as int));
     fieldSchema = _removeAllLargeSpaces(fieldSchema);
     if (_validFieldsSchema(fieldSchema)) {
       String fields = _extractField(fieldSchema);
       List<Field> fieldList = _parseFieldStringToArray(fields);
-      dynamic data = _buildRandomData(fieldList);
-      return data;
+      if (count! > 1) {
+        return _buildMultipleRandomData(fieldList, count);
+      } else {
+        return _buildRandomData(fieldList);
+      }
     } else {
       throw Exception("Invalid Field Schema,Please check the documentation");
     }
@@ -172,5 +204,3 @@ class Field {
 
   Field({required this.fieldType, required this.fieldName});
 }
-
-
