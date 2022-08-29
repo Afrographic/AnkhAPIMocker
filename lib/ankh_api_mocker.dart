@@ -6,7 +6,7 @@ import 'dart:collection';
 import 'dart:developer';
 import 'dart:math' as math;
 
-import 'package:ankh_api_mocker/images.dart';
+import 'package:ankh_api_mocker/constant.dart';
 
 /*
 Author : Afrographix
@@ -176,6 +176,23 @@ class AnkhAPIMocker {
       data.add(dataItem);
     }
     return data;
+  }
+
+  String generateAvatarURL() {
+    return _generateRandomAvatar();
+  }
+
+  String generateRandomImageURL() {
+    return _generateRandomImage();
+  }
+
+  String generateText(int totalWords) {
+    String text = "";
+    while (text.length < totalWords) {
+      int index = _randomIntGenerator(images.length - 1);
+      text += words[index] + " ";
+    }
+    return text.substring(0, totalWords);
   }
 
   dynamic generateData(
