@@ -52,7 +52,18 @@ class AnkhAPIMocker {
     return date % 2 == 0;
   }
 
-  String _randomStringGenerator(String fieldName) {
+  bool _validTextField(String fieldName) {
+    final requiredFieldSchema = RegExp(r'.*len.+');
+    return requiredFieldSchema.hasMatch(fieldName);
+  }
+
+  String _stringGeneratorPicker(String fieldName) {
+    if (_validTextField(fieldName)) {
+      return _generateRandomText(fieldName);
+    }
+    if (fieldName.toLowerCase().contains("date")) {
+      return _generateDate();
+    }
     if (fieldName.toLowerCase().contains("avatar")) {
       return _generateRandomAvatar();
     }
@@ -60,6 +71,22 @@ class AnkhAPIMocker {
       return _generateRandomImage();
     }
     if (_randomBoolGenerator()) return "Sekhmet";
+    return _randomStringGenerator();
+  }
+
+  String _generateDate() {
+    int monthIndex = _randomIntGenerator(months.length - 1);
+    String year = (DateTime.now().year).toString();
+    return "${_randomIntGenerator(28)} ${months[monthIndex]}. $year";
+  }
+
+  String _generateRandomText(String fieldName) {
+    List<String> splittedString = fieldName.split("len");
+    int textLeng = int.parse(splittedString[1]);
+    return generateText(textLeng);
+  }
+
+  String _randomStringGenerator() {
     List<String> chars = ["Ankh", "Maat", "Amon", "Afro"];
     String suffix = "";
     suffix += chars[_randomIntGenerator(chars.length - 1)];
@@ -110,12 +137,12 @@ class AnkhAPIMocker {
 
       case "String":
         {
-          return _randomStringGenerator(field.fieldName);
+          return _stringGeneratorPicker(field.fieldName);
         }
 
       case "String?":
         {
-          return _randomStringGenerator(field.fieldName);
+          return _stringGeneratorPicker(field.fieldName);
         }
 
       case "double":
@@ -176,6 +203,10 @@ class AnkhAPIMocker {
       data.add(dataItem);
     }
     return data;
+  }
+
+  String generateDate() {
+    return _generateDate();
   }
 
   String generateAvatarURL() {

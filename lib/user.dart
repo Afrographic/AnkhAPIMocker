@@ -36,6 +36,8 @@ class User {
     String avatar;
     String coverImage;
     String fullName;
+    String startDate;
+    String descriptionlen45;
     bool isOnline;
   }""";
 }
