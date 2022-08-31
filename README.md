@@ -16,7 +16,13 @@ know whether this package might be useful for them.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+
+<ul>
+  <li><b>Generate Mock data from your model single</b></li>
+  <li>Generate random image links (avatars,images)</li>
+  <li>Generate random date</li>
+  <li>Generate random text just like lorem ipsum engine</li>
+</ul>
 
 ## Getting started
 
