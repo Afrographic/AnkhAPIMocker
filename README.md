@@ -11,35 +11,44 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This package allow your to generate random data that you can use to fill your UI or make your unit testing
 
 ## Features
 
-
 <ul>
-  <li><b>Generate Mock data from your model single</b></li>
+  <li><b>Generate Mock data from your model to fill your UI</b></li>
   <li>Generate random image links (avatars,images)</li>
   <li>Generate random date</li>
   <li>Generate random text just like lorem ipsum engine</li>
 </ul>
 
 ## Getting started
+To start using the package your must first create a string representation of your model fields inside your class definition just like this, make it static. we are using the model User for our example
+```dart
+class User{
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+    // Normal class fields and methods goes here
+    
+    static String AnkhAPIMockerInit = """{
+        int idUser;
+        String avatar;
+        String coverImage;
+        String fullName;
+        String startDate;
+        String descriptionlen45;
+        bool isOnline;
+    }""";
+}
+```
+Check the video below for more information
 
 ## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
+After that you can generate a single object like this
 ```dart
-const like = 'sample';
+ dynamic userJSON = await AnkhAPIMocker.generateData(
+      fieldSchema: User.AnkhAPIMockerInit);
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+You can support me if you find the package useful

@@ -1,13 +1,13 @@
 name: ankh_api_mocker
-description: A new Flutter package project.
+description: Generate Mock data from your model to fill your UI.
 version: 0.0.1
-homepage:
+homepage: https://github.com/Afrographic/AnkhAPIMocker
 
 environment:
-  sdk: ">=2.15.0-196.0.dev <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.17.0"
 
-dependencies:
+dependencies: 
   flutter:
     sdk: flutter
 
