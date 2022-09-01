@@ -88,6 +88,52 @@ After that you can generate a single object like this
   String createdDate;
 ```
 
+<h3>How to generate a random text ?</h3>
+<p>Just make sure the name of the field contains the string <b>len45</b> , the number 45 here represent the length that you want your text to have</p>
+
+```dart
+  String userDescriptionlen45;
+```
+
+<p> You also have the ability to generate random data without the need to define a model</p>
+<ul>
+  <li>Generate a random text ,  int the example 45 reprensent the length of the text
+
+  ```dart
+  String myText = AnkhAPIMocker.generateText(45);
+  ```
+
+  </li>
+
+  <li>Generate a random Date
+
+  ```dart
+ String myDate = AnkhAPIMocker.generateDate(); // output : 18 jan 2022
+  ```
+
+  </li>
+
+  <li>Generate a random avatarURL
+
+  ```dart
+ String myAvatarURL =AnkhAPIMocker.generateAvatarURL();
+  ```
+
+  </li>
+
+  <li>Generate a random imageURL
+
+  ```dart
+ String imageURL = AnkhAPIMocker.generateRandomImageURL();
+  ```
+
+  </li>
+
+
+</ul>
+
+
+
 ## Additional information
 
 You can support me if you find the package useful
