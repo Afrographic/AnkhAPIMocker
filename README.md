@@ -12,10 +12,6 @@ and the Flutter guide for
 -->
 
 This package allow your to generate random data that you can use to fill your UI or make your unit testing
-<p>
-<a href="https://www.youtube.com/watch?v=YtrouhSprzA" target="_blank" style="color:white;padding:16px;background-color:#00B4AB;border-radius:16px;">Click this link to see how the package works</a>
-</p>
-
 
 ## Features
 
@@ -25,6 +21,11 @@ This package allow your to generate random data that you can use to fill your UI
   <li>Generate random date in string format</li>
   <li>Generate random text from specified length just like lorem ipsum engine</li>
 </ul>
+
+
+<p>
+<a href="https://www.youtube.com/watch?v=YtrouhSprzA" target="_blank" >Open this youtube video if you want to see the package works</a>
+</p>
 
 ## Getting started
 To start using the package your must first create a string representation of your model fields inside your class definition just like this, make it static. we are using the model User for our example
