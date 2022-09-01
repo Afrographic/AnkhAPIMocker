@@ -12,7 +12,9 @@ and the Flutter guide for
 -->
 
 This package allow your to generate random data that you can use to fill your UI or make your unit testing
-<a href="https://www.youtube.com/watch?v=YtrouhSprzA">Click this link to see how the package works</a>
+<p>
+<a href="https://www.youtube.com/watch?v=YtrouhSprzA" target="_blank" style="color:white;padding:16px;background-color:#00B4AB;border-radius:16px;">Click this link to see how the package works</a>
+</p>
 ## Features
 
 <ul>
