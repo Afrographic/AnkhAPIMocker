@@ -136,4 +136,14 @@ After that you can generate a single object like this
 
 ## Additional information
 
-You can support me if you find the package useful
+If you found the package useful, you can support me by sending me some cryptoCurrencies (BTC or ETH), here are my wallets adresses
+
+Bitcoin
+  ```dart
+333JVoZfoeGVWdCkwaqbkXajBCKf4HhJ9f
+  ```
+
+Ethereum
+  ```dart
+ 0xEBceEe5F8510D548c80d7238d7224a736E96F9Cc
+  ```
