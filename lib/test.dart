@@ -1,12 +1,11 @@
-import 'dart:developer';
-
 import 'package:ankh_api_mocker/ankh_api_mocker.dart';
 import 'package:ankh_api_mocker/user.dart';
 
 void main() async {
-  dynamic userJSON = await AnkhAPIMocker.generateData(
-      fieldSchema: User.AnkhAPIMockerInit);
-  print(userJSON);
+  dynamic usersArray =
+      await AnkhAPIMocker.generateData(fieldSchema: User.AnkhAPIMockerInit,delayInSec: 5,count: 15);
+
+
 }
 
 // -- Example APP

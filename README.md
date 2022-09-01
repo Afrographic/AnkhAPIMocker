@@ -16,10 +16,10 @@ This package allow your to generate random data that you can use to fill your UI
 ## Features
 
 <ul>
-  <li><b>Generate Mock data from your model to fill your UI</b></li>
+  <li><b>Generate Mock data from your model fields definition</b></li>
   <li>Generate random image links (avatars,images)</li>
-  <li>Generate random date</li>
-  <li>Generate random text just like lorem ipsum engine</li>
+  <li>Generate random date in string format</li>
+  <li>Generate random text from specified length just like lorem ipsum engine</li>
 </ul>
 
 ## Getting started
@@ -47,6 +47,45 @@ After that you can generate a single object like this
 ```dart
  dynamic userJSON = await AnkhAPIMocker.generateData(
       fieldSchema: User.AnkhAPIMockerInit);
+```
+<p>AnkhAPIMocker have two Additional parameters</p>
+<p><b>1 . delaiInSec</b></p>
+<p>Which determine the amount of time (in seconds) to wait before the data is generated</p>
+
+```dart
+ dynamic userJSON =
+      await AnkhAPIMocker.generateData(fieldSchema: User.AnkhAPIMockerInit,delayInSec: 5);
+```
+
+<p><b>2 . count</b></p>
+<p>This parameters helps to render a collection of objects (An array of JSON objects), its value represent the number of objects you want to render</p>
+
+```dart
+ dynamic usersArray =
+      await AnkhAPIMocker.generateData(fieldSchema: User.AnkhAPIMockerInit,delayInSec: 5,count: 15);
+```
+
+<h3>How to generate a random avatar image ?</h3>
+<p>Just make sure the name of the field contains the string <b>avatar</b></p>
+
+```dart
+  String userAvatar;
+```
+
+
+<h3>How to generate a random image ?</h3>
+<p>Just make sure the name of the field contains the string <b>image</b></p>
+
+```dart
+  String coverImage;
+```
+
+
+<h3>How to generate a random date ?</h3>
+<p>Just make sure the name of the field contains the string <b>date</b></p>
+
+```dart
+  String createdDate;
 ```
 
 ## Additional information
