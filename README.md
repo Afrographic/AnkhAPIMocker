@@ -11,30 +11,35 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-This package allow your to generate random data that you can use to fill your UI or make your unit testing
+## AnkhMocker
+This package allow you to generate random data that you can use to fill your UI or make your unit testing
 
 ## Features
 
 <ul>
   <li><b>Generate Mock data from your model fields definition</b></li>
+  <li>Generate random text from specified length just like lorem ipsum engine</li>
   <li>Generate random image links (avatars,images)</li>
   <li>Generate random date in string format</li>
-  <li>Generate random text from specified length just like lorem ipsum engine</li>
+  <li>Generate random integer in string format</li>
 </ul>
 
+## Demo App
 
 <p>
-<a href="https://www.youtube.com/watch?v=YtrouhSprzA" target="_blank" >Open this youtube video if you want to see the package works</a>
+To view the demo app using this package<a href="https://www.youtube.com/watch?v=YtrouhSprzA" target="_blank" >Please watch this youtube video</a>
 </p>
 
 ## Getting started
 To start using the package your must first create a string representation of your model fields inside your class definition just like this, make it static. we are using the model User for our example
+<p>Just copy paste it from your model definition to avoid spelling mistakes</p>
+
 ```dart
 class User{
 
     // Normal class fields and methods goes here
     
-    static String AnkhAPIMockerInit = """{
+    static String AnkhMockerInit = """{
         int idUser;
         String avatar;
         String coverImage;
@@ -45,30 +50,31 @@ class User{
     }""";
 }
 ```
-Check the video below for more information
 
 ## Usage
 After that you can generate a single object like this
 ```dart
- dynamic userJSON = await AnkhAPIMocker.generateData(
-      fieldSchema: User.AnkhAPIMockerInit);
+ dynamic userJSON = await AnkhMocker.generateData(
+      fieldSchema: User.AnkhMockerInit);
 ```
-<p>AnkhAPIMocker have two Additional parameters</p>
+<p>AnkhMocker have two Additional parameters</p>
 <p><b>1 . delaiInSec</b></p>
-<p>Which determine the amount of time (in seconds) to wait before the data is generated</p>
+<p>Which determine the amount of time (in seconds) to wait before the data is generated. defaults to 1 </p>
 
 ```dart
  dynamic userJSON =
-      await AnkhAPIMocker.generateData(fieldSchema: User.AnkhAPIMockerInit,delayInSec: 5);
+      await AnkhMocker.generateData(fieldSchema: User.AnkhMockerInit,delayInSec: 5);
 ```
 
 <p><b>2 . count</b></p>
-<p>This parameters helps to render a collection of objects (An array of JSON objects), its value represent the number of objects you want to render</p>
+<p>This parameter helps you to generate a collection of objects (An array of JSON objects), its value represent the number of objects you want to generate</p>
 
 ```dart
  dynamic usersArray =
-      await AnkhAPIMocker.generateData(fieldSchema: User.AnkhAPIMockerInit,delayInSec: 5,count: 15);
+      await AnkhMocker.generateData(fieldSchema: User.AnkhMockerInit,delayInSec: 5,count: 15);
 ```
+
+## Additional Features
 
 <h3>How to generate a random avatar image ?</h3>
 <p>Just make sure the name of the field contains the string <b>avatar</b></p>
@@ -94,42 +100,53 @@ After that you can generate a single object like this
 ```
 
 <h3>How to generate a random text ?</h3>
-<p>Just make sure the name of the field contains the string <b>len45</b> , the number 45 here represent the length that you want your text to have</p>
+<p>Just make sure the name of the field contains the string <b>len45</b> , the number 45 here represent the length that you want your text to have, you can replace it with any length</p>
 
 ```dart
   String userDescriptionlen45;
 ```
 
+## Generate without a model
+
 <p> You also have the ability to generate random data without the need to define a model</p>
 <ul>
-  <li>Generate a random text ,  int the example 45 reprensent the length of the text
+  <li>Generate a random text ,  in the example 45 represent the length of the text , you can define any length
 
   ```dart
-  String myText = AnkhAPIMocker.generateText(45);
+  String myText = AnkhMocker.generateText(45);
   ```
 
   </li>
 
-  <li>Generate a random Date
+  <li>Generate  random Date
 
   ```dart
- String myDate = AnkhAPIMocker.generateDate(); // output : 18 jan 2022
+    // single 
+ String myDate = AnkhMocker.generateDate(); // output : 18 jan 2022
+  // Multiple
+  List<String> myAvatarURLs = AnkhMocker.generateDateList(10);
   ```
 
   </li>
 
-  <li>Generate a random avatarURL
+  <li>Generate random avatarURL
 
   ```dart
- String myAvatarURL =AnkhAPIMocker.generateAvatarURL();
+  // single 
+ String myAvatarURL = AnkhMocker.generateAvatarURL();
+ // Multiple
+ List<String> myAvatarURLs = AnkhMocker.generateAvatarURLList(10);
   ```
 
   </li>
 
-  <li>Generate a random imageURL
+  <li>Generate  random imageURL
 
   ```dart
- String imageURL = AnkhAPIMocker.generateRandomImageURL();
+  // Single 
+ String imageURL = AnkhMocker.generateRandomImageURL();
+ //Mulitple
+List<String> imageURLs = AnkhMocker.generateImageURLList(10);
   ```
 
   </li>
@@ -141,7 +158,7 @@ After that you can generate a single object like this
 
 ## Additional information
 
-If you found the package useful, you can support me by sending me some cryptoCurrencies (BTC or ETH), here are my wallets adresses
+If you found the package useful, you can support either in Crypto 😏 (BTC or ETH), here are my wallets adresses
 
 Bitcoin
   ```dart
@@ -151,4 +168,20 @@ Bitcoin
 Ethereum
   ```dart
  0xEBceEe5F8510D548c80d7238d7224a736E96F9Cc
+  ```
+<h2>Or with electronic Cash , below are my coordinates</h2>
+
+Orange Money - Cameroon - name : Tesse brunel
+  ```dart
+697830071
+  ```
+
+MTN mobile money - Cameroon - name : Hamadjoda
+  ```dart
+678724995
+  ```
+
+Tap Tap Send - Cameroon 
+  ```dart
+678724995
   ```

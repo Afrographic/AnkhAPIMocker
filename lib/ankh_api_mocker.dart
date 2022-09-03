@@ -33,7 +33,7 @@ Output
 }
 */
 
-class AnkhAPIMocker {
+class AnkhMocker {
   static int _randomIntGenerator(int max) {
     var random = math.Random();
     return random.nextInt(max);
@@ -206,12 +206,60 @@ class AnkhAPIMocker {
     return _generateDate();
   }
 
+  static List<String> generateDateList(int count) {
+    List<String> data = [];
+    if (count > 0) {
+      for (int i = 0; i <= count; i++) {
+        data.add(_generateDate());
+      }
+    } else {
+      data.add(_generateDate());
+    }
+    return data;
+  }
+
   static String generateAvatarURL() {
     return _generateRandomAvatar();
   }
 
+  static List<String> generateAvatarURLList(int count) {
+    List<String> data = [];
+    if (count > 0) {
+      for (int i = 0; i <= count; i++) {
+        data.add(_generateRandomAvatar());
+      }
+    } else {
+      data.add(_generateRandomAvatar());
+    }
+    return data;
+  }
+
   static String generateRandomImageURL() {
     return _generateRandomImage();
+  }
+
+  static List<String> generateImageURLList(int count) {
+    List<String> data = [];
+    if (count > 0) {
+      for (int i = 0; i <= count; i++) {
+        data.add(_generateRandomImage());
+      }
+    } else {
+      data.add(_generateRandomImage());
+    }
+    return data;
+  }
+
+  static List<int> generateIntList(int count) {
+    List<int> data = [];
+    if (count > 0) {
+      for (int i = 0; i <= count; i++) {
+        data.add(_randomIntGenerator(50));
+      }
+    } else {
+      data.add(_randomIntGenerator(50));
+    }
+    return data;
   }
 
   static String generateText(int totalWords) {
