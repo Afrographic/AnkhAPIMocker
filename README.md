@@ -9,6 +9,11 @@ For general information about developing packages, see the Dart guide for
 [creating packages](https://dart.dev/guides/libraries/create-library-packages)
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
+
+2 - Do the demo App in english
+3 - Translate the demo App in french(Voice Over)
+4 - Write the docs in PDF
+5 - deploy to pub.dev
 -->
 
 ## AnkhMocker

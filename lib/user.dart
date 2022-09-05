@@ -1,25 +1,19 @@
 class User {
   int idUser;
-  String avatar;
-  String coverImage;
   String fullName;
   bool isOnline;
 
   User({
-    required this.coverImage,
-    required this.avatar,
-    required this.idUser,
     required this.fullName,
+    required this.idUser,
     required this.isOnline,
   });
 
   static User fromJSON(dynamic user) {
     return User(
       idUser: user["idUser"],
-      fullName: user["fullName"],
       isOnline: user["isOnline"],
-      avatar: user["avatar"],
-      coverImage: user["coverImage"],
+      fullName: user["avatar"],
     );
   }
 
@@ -31,13 +25,9 @@ class User {
     return usersObj;
   }
 
-  static String AnkhAPIMockerInit = """{
+  static String AnkhMockerInit = """{
     int idUser;
     String avatar;
-    String coverImage;
-    String fullName;
-    String startDate;
-    String descriptionlen45;
     bool isOnline;
   }""";
 }
