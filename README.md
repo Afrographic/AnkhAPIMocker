@@ -174,6 +174,22 @@ Ethereum
   ```dart
 0x8D0E3Bb7EB460E518A5D1203eb71b86097f04bda
   ```
+
+Tether (BEP20)
+  ```dart
+0x8D0E3Bb7EB460E518A5D1203eb71b86097f04bda
+  ```
+
+Tether (ERC20)
+  ```dart
+0x8D0E3Bb7EB460E518A5D1203eb71b86097f04bda
+  ```
+
+BNB
+  ```dart
+0x8D0E3Bb7EB460E518A5D1203eb71b86097f04bda
+  ```
+
 <h2>Or with electronic Cash , below are my coordinates</h2>
 
 Orange Money - Cameroon - name : Tesse brunel
