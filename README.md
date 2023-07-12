@@ -29,11 +29,7 @@ This package allow you to generate random data that you can use to fill your UI 
   <li>Generate random integer in string format</li>
 </ul>
 
-## Demo App
 
-<p>
-To view the demo app using this package<a href="https://www.youtube.com/watch?v=YtrouhSprzA" target="_blank" >Please watch this youtube video</a>
-</p>
 
 ## Getting started
 To start using the package your must first create a string representation of your model fields inside your class definition just like this, make it static. we are using the model User for our example
