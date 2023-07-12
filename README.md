@@ -167,12 +167,12 @@ If you found the package useful, you can support either in Crypto 😏 (BTC or E
 
 Bitcoin
   ```dart
-333JVoZfoeGVWdCkwaqbkXajBCKf4HhJ9f
+bc1q8n7z8uyz84p9gv00ytvc2w3k3jhlyz6j85drwh
   ```
 
 Ethereum
   ```dart
- 0xEBceEe5F8510D548c80d7238d7224a736E96F9Cc
+0x8D0E3Bb7EB460E518A5D1203eb71b86097f04bda
   ```
 <h2>Or with electronic Cash , below are my coordinates</h2>
 
