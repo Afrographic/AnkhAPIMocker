@@ -157,7 +157,7 @@ List<String> imageURLs = AnkhMocker.generateImageURLList(10);
 
 
 
-## Additional information
+## Become our sponsor
 
 If you found the package useful, you can support either in Crypto 😏 (BTC or ETH), here are my wallets adresses
 
