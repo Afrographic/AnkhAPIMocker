@@ -19,6 +19,10 @@ and the Flutter guide for
 ## AnkhMocker
 This package allow you to generate random data that you can use to fill your UI or make your unit testing
 
+## Download the package 
+click on this link https://drive.google.com/file/d/14KA7jyAjBrTp85pwVvJzsKgwDtRjL7-N/view?usp=sharing to download the package
+it is a single file
+
 ## Features
 
 <ul>
