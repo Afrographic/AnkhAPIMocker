@@ -16,24 +16,6 @@ and the Flutter guide for
 5 - deploy to pub.dev
 -->
 
-## AnkhMocker
-This package allow you to generate random data that you can use to fill your UI or make your unit testing
-
-## Download the package 
-click on this link https://drive.google.com/file/d/14KA7jyAjBrTp85pwVvJzsKgwDtRjL7-N/view?usp=sharing to download the package
-it is a single file
-
-## Features
-
-<ul>
-  <li><b>Generate Mock data from your model fields definition</b></li>
-  <li>Generate random text from specified length just like lorem ipsum engine</li>
-  <li>Generate random image links (avatars,images)</li>
-  <li>Generate random date in string format</li>
-  <li>Generate random integer in string format</li>
-</ul>
-
-
 
 ## Getting started
 To start using the package your must first create a string representation of your model fields inside your class definition just like this, make it static. we are using the model User for our example
@@ -55,6 +37,24 @@ class User{
     }""";
 }
 ```
+
+## Download the package 
+click on this link https://drive.google.com/file/d/14KA7jyAjBrTp85pwVvJzsKgwDtRjL7-N/view?usp=sharing to download the package
+it is a single file
+
+## AnkhMocker is Flexible
+it has no dependency , it is lightweight (single file) and it works on all versions of dart.
+
+## Features
+
+<ul>
+  <li><b>Generate Mock data from your model fields definition</b></li>
+  <li>Generate random text from specified length just like lorem ipsum engine</li>
+  <li>Generate random image links (avatars,images)</li>
+  <li>Generate random date in string format</li>
+  <li>Generate random integer in string format</li>
+</ul>
+
 
 ## Usage
 After that you can generate a single object like this
