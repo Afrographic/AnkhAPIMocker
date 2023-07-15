@@ -16,6 +16,10 @@ and the Flutter guide for
 5 - deploy to pub.dev
 -->
 
+## Download the package 
+click on this link https://drive.google.com/file/d/14KA7jyAjBrTp85pwVvJzsKgwDtRjL7-N/view?usp=sharing to download the package
+it is a single file that you copy and paste in our project, it has No dependency, No YAML required, lightweight, works on all versions of dart
+
 
 ## Getting started
 To start using the package your must first create a string representation of your model fields inside your class definition just like this, make it static. we are using the model User for our example
@@ -38,9 +42,6 @@ class User{
 }
 ```
 
-## Download the package 
-click on this link https://drive.google.com/file/d/14KA7jyAjBrTp85pwVvJzsKgwDtRjL7-N/view?usp=sharing to download the package
-it is a single file
 
 ## AnkhMocker is Flexible
 it has no dependency , it is lightweight (single file) and it works on all versions of dart.
