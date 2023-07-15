@@ -30,7 +30,7 @@ class User{
 
     // Normal class fields and methods goes here
     
-    static String AnkhMockerInit = """{
+    static String AnkhMockerInit = """
         int idUser;
         String avatar;
         String coverImage;
@@ -38,7 +38,7 @@ class User{
         String startDate;
         String descriptionlen45;
         bool isOnline;
-    }""";
+    """;
 }
 ```
 
